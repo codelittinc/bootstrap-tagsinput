@@ -40,7 +40,7 @@
     this.multiple = (this.isSelect && element.hasAttribute('multiple'));
     this.objectItems = options && options.itemValue;
     this.placeholderText = element.hasAttribute('placeholder') ? this.$element.attr('placeholder') : '';
-    this.placeholderText = element.hasAttribute('data-helper') ? this.$element.attr('data-helper') : '';
+    this.helperText = element.hasAttribute('data-helper') ? this.$element.attr('data-helper') : '';
     this.inputSize = Math.max(1, this.placeholderText.length);
 
     this.$container = $('<div class="bootstrap-tagsinput"></div>');
