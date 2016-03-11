@@ -45,7 +45,8 @@
 
     this.$container = $('<div class="bootstrap-tagsinput"></div>');
     this.$helper = $('<div class="helper">' + this.helperText + '</div>').appendTo(this.$container);
-    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '"/>').appendTo(this.$container);
+    this.$inputContainer = $('<div class="input-container"></div>').appendTo(this.$container);
+    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '"/>').appendTo(this.$inputContainer);
 
     this.$element.before(this.$container);
 
