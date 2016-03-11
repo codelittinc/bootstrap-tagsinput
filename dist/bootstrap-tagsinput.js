@@ -136,7 +136,7 @@
 
       var $tag = $('<span class="tag ' + htmlEncode(tagClass) + (itemTitle !== null ? ('" title="' + itemTitle) : '') + '">' + htmlEncode(itemText) + '<span data-role="remove"></span></span>');
       $tag.data('item', item);
-      self.findInputWrapper().before($tag);
+      self.findHelperWrapper().before($tag);
       $tag.after(' ');
 
       // add <option /> if item represents a value not present in one of the <select />'s options
@@ -515,6 +515,19 @@
      */
     findInputWrapper: function () {
       var elt = this.$input[0],
+        container = this.$container[0];
+      while (elt && elt.parentNode !== container)
+        elt = elt.parentNode;
+
+      return $(elt);
+    },
+
+    /**
+     * Returns the element which is wrapped around the internal input. This
+     * is normally the $container, but typeahead.js moves the $input element.
+     */
+    findHelperWrapper: function () {
+      var elt = this.$helper[0],
         container = this.$container[0];
       while (elt && elt.parentNode !== container)
         elt = elt.parentNode;
