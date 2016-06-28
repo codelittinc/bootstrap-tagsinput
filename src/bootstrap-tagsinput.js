@@ -24,7 +24,8 @@
     },
     trimValue: false,
     allowDuplicates: false,
-    keyboardTagDelete: true
+    keyboardTagDelete: true,
+    preventAutoFocus: false
   };
 
   /**
@@ -362,7 +363,9 @@
         if (!self.$element.attr('disabled')) {
           self.$input.removeAttr('disabled');
         }
-        self.$input.focus();
+        if (!self.options.preventAutoFocus) {
+          self.$input.focus();
+        }
       }, self));
 
       if (self.options.addOnBlur && self.options.freeInput) {
